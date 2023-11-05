@@ -1,0 +1,15 @@
+﻿version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my-postgres-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 111111111
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+  bot:
+     build: .
+     depends_on: 
+        - postgres
